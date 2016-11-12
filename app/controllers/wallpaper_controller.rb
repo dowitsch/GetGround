@@ -2,7 +2,7 @@ class WallpaperController < ApplicationController
   APP_ID = '065d5257-2ce9-41bd-a423-9f7836592a74'
 
   def index
-    path = "#{Rails.rooc}/public/images/image.jpg"
+    path = "#{Rails.root}/public/images/image.jpg"
     send_file( path,
               disposition: 'inline',
               type: 'image/jpeg',
