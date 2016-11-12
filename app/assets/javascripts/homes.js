@@ -1,34 +1,14 @@
 (function($) {
-  'use strict';
   $(document).ready(function(){
-    var dropZone = document.getElementById('drop-zone');
-    var uploadForm = document.getElementById('js-upload-form');
+    var pic = document.getElementById("pic").value
+    var buttontext = document.getElementById("buttontext")
+    var oldtext = document.getElementById("buttontext").innerHTML
+    var text = "File uploading..."
 
-    var startUpload = function(files) {
-      console.log(files);
-    };
-
-    uploadForm.addEventListener('submit', function(e) {
-      var uploadFiles = document.getElementById('js-upload-files').files;
-
-      startUpload(uploadFiles);
+    $('#pic').on('change', function() {
+      buttontext.innerHTML=text
+      document.getElementById('uploadform').submit();
+      setTimeout(function(){ buttontext.innerHTML=oldtext }, 5000);
     });
-
-    dropZone.ondrop = function(e) {
-      e.preventDefault();
-      this.className = 'upload-drop-zone';
-
-      startUpload(e.dataTransfer.files)
-    }
-
-    dropZone.ondragover = function() {
-      this.className = 'upload-drop-zone drop';
-      return false;
-    }
-
-    dropZone.ondragleave = function() {
-      this.className = 'upload-drop-zone';
-      return false;
-    }
-    });
-}(jQuery));
+  });
+})(jQuery)

@@ -1,0 +1,40 @@
+body {
+ font-size: 18px;   
+ background-image:url(128-169.jpg);background-repeat:repeat;
+}
+.orange-circle-button {
+	box-shadow: 2px 4px 0 2px rgba(0,0,0,0.1);
+	border: .5em solid #8bc34a;
+	font-size: 2em;
+	line-height: 1.1em;
+	color: #ffffff;
+	background-color: #8bc34a;
+	margin: auto;
+  margin-top: 20%;
+  margin-left: 35%;
+	border-radius: 50%;
+	height: 10em;
+	width: 10em;
+	position: relative;
+  padding-top:  10%;
+}
+.orange-circle-button:hover {
+	color:#ffffff;
+    background-color: #5a822b;
+	text-decoration: none;
+	border-color: #8bc34a;
+	
+}
+.orange-circle-button:visited {
+	color:#ffffff;
+    background-color: #e84d0e;
+	text-decoration: none;
+	
+}
+.orange-circle-link-greater-than {
+    font-size: 1em;
+}
+
+input[type="file"] {
+    display: none;
+}
