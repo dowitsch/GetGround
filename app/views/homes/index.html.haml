@@ -6,7 +6,7 @@
     .panel-body
       / Standar Form
       %h4 Select files from your computer
-      %form#js-upload-form{:controller => 'wallpaper', :enctype => "multipart/form-data", :method => "post"}
+      %form#js-upload-form{:action => 'wallpaper', :enctype => "multipart/form-data", :method => "post"}
         .form-inline
           .form-group
             %input#js-upload-files{:multiple => "multiple", :name => "files[]", :type => "file"}/
