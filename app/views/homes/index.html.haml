@@ -1,0 +1,32 @@
+.container
+  .panel.panel-default
+    .panel-heading
+      %strong Upload Files
+      %small Bootstrap files upload
+    .panel-body
+      / Standar Form
+      %h4 Select files from your computer
+      %form#js-upload-form{:action => "/wallpaper", :enctype => "multipart/form-data", :method => "post"}
+        .form-inline
+          .form-group
+            %input#js-upload-files{:multiple => "multiple", :name => "files[]", :type => "file"}/
+          %button#js-upload-submit.btn.btn-sm.btn-primary{:type => "submit"} Upload files
+      / Drop Zone
+      %h4 Or drag and drop files below
+      #drop-zone.upload-drop-zone
+        Just drag and drop files here
+      / Progress Bar
+      .progress
+        .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 60%;"}
+          %span.sr-only 60% Complete
+      / Upload Finished
+      .js-upload-finished
+        %h3 Processed files
+        .list-group
+          %a.list-group-item.list-group-item-success{:href => "#"}
+            %span.badge.alert-success.pull-right> Success
+            image-01.jpg
+          %a.list-group-item.list-group-item-success{:href => "#"}
+            %span.badge.alert-success.pull-right> Success
+            image-02.jpg
+/ /container
