@@ -1,6 +1,3 @@
-require 'one_signal'
-require 'net-http-spy'
-
 class WallpaperController < ApplicationController
   APP_ID = '065d5257-2ce9-41bd-a423-9f7836592a74'
 
@@ -13,11 +10,12 @@ class WallpaperController < ApplicationController
   end
 
   def create
-    #wallpaper = params[:wallpaper].first
+    wallpaper = params[:wallpaper]
 
-    #File.open("#{Rails.root}/public/images/image.jpg",'wb') do |f|
-    #  f.write wallpaper.read
-    #end
+    return if wallpaper.nil?
+    File.open("#{Rails.root}/public/images/image.jpg",'wb') do |f|
+      f.write wallpaper.first.read
+    end
     send_notification
   end
 
