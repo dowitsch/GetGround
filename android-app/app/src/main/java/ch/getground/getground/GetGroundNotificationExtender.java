@@ -1,7 +1,12 @@
 package ch.getground.getground;
 
 import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 
 import com.onesignal.NotificationExtenderService;
 import com.onesignal.OSNotificationReceivedResult;
@@ -16,7 +21,6 @@ import java.net.URL;
 /**
  * Created by nicolosingerbfh on 12.11.16.
  */
-
 public class GetGroundNotificationExtender extends NotificationExtenderService
 {
 
@@ -40,13 +44,14 @@ public class GetGroundNotificationExtender extends NotificationExtenderService
     private void process(OSNotificationReceivedResult notification) throws JSONException, IOException
     {
         JSONObject data = notification.payload.additionalData;
-        if (data != null)
+        Options options = new Options(getApplicationContext());
+        if (data != null && options.isActive())
         {
             String imgUri = data.getString(KEY_IMG_URI);
-            WallpaperManager wpManager = WallpaperManager.getInstance(getApplicationContext());
-            InputStream is = (InputStream) new URL(imgUri).getContent();
-            wpManager.setStream(is);
+            new BackgroundManager(getApplicationContext()).set(imgUri);
         }
     }
+
+
 
 }
