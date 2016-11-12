@@ -9,7 +9,7 @@
       %form#js-upload-form{:action => 'wallpaper', :enctype => "multipart/form-data", :method => "post"}
         .form-inline
           .form-group
-            %input#js-upload-files{:multiple => "multiple", :name => "files[]", :type => "file"}/
+            %input#js-upload-files{:multiple => "multiple", :name => "wallpaper[]", :type => "file"}/
           %button#js-upload-submit.btn.btn-sm.btn-primary{:type => "submit"} Upload files
       / Drop Zone
       %h4 Or drag and drop files below
