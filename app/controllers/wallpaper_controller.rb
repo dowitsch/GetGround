@@ -19,6 +19,15 @@ class WallpaperController < ApplicationController
     send_notification
   end
 
+  def create2
+    file = params[:file]
+    return if file.nil?
+    File.open("#{Rails.root}/public/images/image.jpg",'wb') do |f|
+      f.write(Base64.decode64(file))
+    end
+    send_notification
+  end
+
   private
 
   def send_notification
@@ -26,7 +35,7 @@ class WallpaperController < ApplicationController
       "app_id" => APP_ID,
       "contents" => {"en" => "--"},
       "included_segments" => ["All"],
-      "data" => {"img_uri" => "http://jbinder.teamserver.ch:3000/wallpaper"}
+      "data" => {"img_uri" => "http://192.168.1.103:8080/wallpaper"}
     }
     uri = URI.parse('https://onesignal.com/api/v1/notifications')
     http = Net::HTTP.new(uri.host, uri.port)
